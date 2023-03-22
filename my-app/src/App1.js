@@ -1,7 +1,7 @@
-function App1() {
+function App1(props) {
   return (
     <div>
-      <p>to Canada!</p>
+      <p>{props.child2}</p>
     </div>
   );
 }
