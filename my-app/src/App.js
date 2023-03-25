@@ -5,6 +5,7 @@ import App2 from './App2';
 import App3 from './App3';
 import App4 from './App4';
 import App5 from './App5';
+import App6 from './App6';
 import { useState } from 'react';
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
   const [pData, setpData] = useState('test'); //set for pass data app4 child to parent
   const [app4Data, setapp4Data] = useState('extra test');
 
+const  addApp6 = "We need more information before travel anywhere";
+
+
+
   const parentData = (data) => {
     console.log(data);
     //pData = data;
@@ -33,6 +38,9 @@ function App() {
     console.log(dataTwo);
     setapp4Data(dataTwo);
   }
+
+
+
 
   return (
     <div className="App">
@@ -58,6 +66,14 @@ function App() {
         solution2={note2}
         parentChildTwoData={parentDataTwo}
       />
+
+      <App6
+      forapp6 = {addApp6}
+      
+      
+      />
+
+
     </div>
   );
 }
