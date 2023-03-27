@@ -1,7 +1,12 @@
 function App2(props) {
+  const clickHere = ()=> {
+    props.ExtraChildButton('Welcome students')
+
+  };
+
   return (
     <div>
-      <p>{props.childName}</p>
+    <button onClick={()=> clickHere()} >Click Me</button>
     </div>
   );
 }

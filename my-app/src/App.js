@@ -6,6 +6,8 @@ import App3 from './App3';
 import App4 from './App4';
 import App5 from './App5';
 import App6 from './App6';
+import App7 from './App7';
+
 import { useState } from 'react';
 
 function App() {
@@ -23,32 +25,52 @@ function App() {
   const [pData, setpData] = useState('test'); //set for pass data app4 child to parent
   const [app4Data, setapp4Data] = useState('extra test');
 
-const  addApp6 = "We need more information before travel anywhere";
+  const addApp6 = 'We need more information before travel anywhere';
 
-
+  const [app7Data, setapp7Data] = useState('add message');
 
   const parentData = (data) => {
     console.log(data);
     //pData = data;
     setpData(data);
-  
   };
 
-  const parentDataTwo = (dataTwo)=>{
+  const parentDataTwo = (dataTwo) => {
     console.log(dataTwo);
     setapp4Data(dataTwo);
-  }
+  };
 
+  const childPassParent = 'Test';
 
+  const buttonData = (data) => {
+    alert(data);
+  };
 
+  const extraButtonData = (moredata) => {
+    alert(moredata);
+  };
+
+  //let stateData = 'My state Data';  -- here we use setstate to do the work to change data-- just main parent page
+  const [stateData, setStateData] = useState('My state data'); // My state data just orginal message before change
+
+  const changeState = (data) => {
+    setStateData(data); //change state is message that change from using setfunction
+    //stateData = 'Changed state';
+  };
 
   return (
     <div className="App">
       <p>
-        Welcome! {pData} {app4Data}{' '}
+        Welcome!
+        {stateData}
+        <button onClick={() => changeState('Changed state')}>
+          Change State
+        </button>
+        <App2 childName={greet} ExtraChildButton={changeState} />
+        {/* {pData} {app4Data}{' '} */}
       </p>
-      <App1 child2={country} />
-      <App2 childName={greet} />
+      {/* <App1 child2={country} childButton={buttonData} />
+      <App2 childName={greet}  ExtraChildButton = {extraButtonData} />
       <App3
         child3={continent}
         extraChild={extraMessage}
@@ -67,13 +89,9 @@ const  addApp6 = "We need more information before travel anywhere";
         parentChildTwoData={parentDataTwo}
       />
 
-      <App6
-      forapp6 = {addApp6}
-      
-      
-      />
+      <App6 forapp6={addApp6} />
 
-
+      <App7 nameChildPassParent={childPassParent} /> */}
     </div>
   );
 }
